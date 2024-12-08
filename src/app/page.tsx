@@ -64,6 +64,7 @@ export default function NetworkAdmin() {
   const [data, setData] = useState<any>(null);
   const [newLevel] = useState<number>(1);
   const [level, setlevel] = useState<number>(1);
+
   function transformData(node: any, parentId = "") {
     const transformedNode = {
       name: node.user ? node.user.walletAddress : "Unknown User",
@@ -89,6 +90,7 @@ export default function NetworkAdmin() {
 
     return result;
   }
+
   useEffect(() => {
     const s = transformData(tree);
     setData(s);
