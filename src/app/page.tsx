@@ -124,7 +124,7 @@ export default function NetworkAdmin() {
   return (
     <>
       <div>
-        <div ref={ref} className="h-screen bg-white w-full min-w-0 rounded">
+        <div ref={ref} className="h-[72dvh] w-full min-w-0 rounded">
           {data ? (
             <>
               <div className="h-full">
