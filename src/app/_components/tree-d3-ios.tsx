@@ -43,8 +43,8 @@ const OrganizationChart = forwardRef<HTMLDivElement, OrgChartProps>((props) => {
         .initialExpandLevel(props.level)
         .layout("left")
         .pagingStep(2)
-        .nodeWidth(() => 180)
-        .nodeHeight(() => 50)
+        .nodeWidth(() => 280)
+        .nodeHeight(() => 120)
         .compact(false)
         .onNodeClick((e: any) => {
           props.onNodeClick(e);
