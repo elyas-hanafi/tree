@@ -3,6 +3,8 @@
 import React, { useLayoutEffect, useRef, forwardRef, useState } from "react";
 import { OrgChart } from "d3-org-chart";
 import * as d3 from "d3"; // Import D3
+import CustomNodeContent from "./CustomNodeContent";
+import { renderToString } from "react-dom/server";
 
 interface User {
   walletAddress: string;
@@ -48,26 +50,7 @@ const OrganizationChart = forwardRef<HTMLDivElement, OrgChartProps>((props) => {
           props.onNodeClick(e);
         })
         .nodeContent((node: any) => {
-          const str = `
-            <div class="relative w-full rounded-xl border border-gray-soft bg-[#ffffff] p-2">
-              <div class="absolute -top-[2px] left-0 mx-auto h-[2px] w-[90%]  bg-gradient-to-l from-[#ffffff46] via-[#349affc4]  to-[#ffffffa9]"></div>
-              <div class="absolute -bottom-[2px] left-0 mx-auto h-[2px] w-[90%]  bg-gradient-to-l from-[#ffffff46] via-[#349affc4]  to-[#ffffffa9]"></div>
-                 <div class="flex  bg-[#ffffff]">
-                    <p className="font-title text-xs">LEVEL</p>
-                    <p>${node.depth + 1}</p>
-                  </div>
-              <div class="flex justify-between text-nowrap font-body capitalize">
-                <div>referral code: ${
-                  node?.data?.user?.referralCode || ""
-                }</div>
-                <div class="text-accent underline node-details" data-node-id="${
-                  node.id
-                }">
-                  Details
-                </div>
-              </div>
-            </div>
-          `;
+          const str = renderToString(<CustomNodeContent node={node} />);
           return str;
         })
         .render();
