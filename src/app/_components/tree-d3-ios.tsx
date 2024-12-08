@@ -59,11 +59,11 @@ const OrganizationChartIOS = forwardRef<HTMLDivElement, OrgChartProps>(
             <div class="relative w-full rounded-xl border border-gray-soft bg-[#ffffff] p-2">
               <div class="absolute -top-[2px] left-0 mx-auto h-[2px] w-[90%]  bg-gradient-to-l from-[#ffffff46] via-[#349affc4]  to-[#ffffffa9]"></div>
               <div class="absolute -bottom-[2px] left-0 mx-auto h-[2px] w-[90%]  bg-gradient-to-l from-[#ffffff46] via-[#349affc4]  to-[#ffffffa9]"></div>
-                 <div class="flex  bg-[#ffffff]">
+                 <div class="flex  bg-[#ffffff] text-black">
                     <p className="font-title text-xs">LEVEL</p>
                     <p>${node.depth + 1}</p>
                   </div>
-              <div class="flex justify-between text-nowrap font-body capitalize">
+              <div class="flex justify-between text-nowrap font-body capitalize text-black">
                 <div>referral code: ${
                   node?.data?.user?.referralCode || ""
                 }</div>
